@@ -36,6 +36,9 @@ const getWordInfo = (data) => {
 		}
 	];
 	// parse definitions
+	if (!data.results) {
+		throw Error(`Requested word "${data.word}" has no formal definition`);
+	}
 	for (let result of data.results) {
 		if (!definitions[result.partOfSpeech]) {
 			definitions[result.partOfSpeech] = [];
@@ -47,9 +50,11 @@ const getWordInfo = (data) => {
 		parsedDefinitions.push({
 			name:
 				`[${partOfSpeech}]` +
-				(data.pronunciation[partOfSpeech]
-					? ` /${data.pronunciation[partOfSpeech]}/:`
-					: ` /${data.pronunciation.all}/:`),
+				(data.pronunciation
+					? data.pronunciation[partOfSpeech]
+						? ` /${data.pronunciation[partOfSpeech]}/:`
+						: ` /${data.pronunciation.all}/:`
+					: ""),
 			value: definitions[partOfSpeech]
 				.slice(0, 3)
 				.map((definition) => " - " + definition)
