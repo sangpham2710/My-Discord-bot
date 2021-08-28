@@ -23,6 +23,17 @@ const commands = [
 					option.setName("word").setDescription("Request a word")
 				)
 		)
+		.addSubcommand((subcommand) =>
+			subcommand
+				.setName("search-word")
+				.setDescription("Search words using Regular Expression (RegEx)")
+				.addStringOption((option) =>
+					option
+						.setName("query")
+						.setDescription("Request a word")
+						.setRequired(true)
+				)
+		)
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "9" }).setToken(token);

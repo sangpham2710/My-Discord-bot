@@ -114,17 +114,70 @@ const getWord = async (word) => {
 	}
 };
 
+const getSearchData = async (query) => {
+	const options = {
+		method: "GET",
+		url: `https://wordsapiv1.p.rapidapi.com/words/`,
+		params: {
+			letterPattern: query,
+			limit: 10
+		},
+		headers: {
+			"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+			"x-rapidapi-key": rapidapiKey
+		}
+	};
+	try {
+		const res = await axios.request(options);
+		return res.data.results.data;
+	} catch (err) {
+		throw Error("API Server didn't respond");
+	}
+};
+
+const searchWords = async (query) => {
+	try {
+		const words = await getSearchData(query);
+		const response = {
+			...templateEmbed,
+			fields: [
+				{
+					name: `Search results for "${query}":`,
+					value: words.length
+						? words.map((word) => " - " + word).join("\n")
+						: "No words found!"
+				}
+			]
+		};
+		return response;
+	} catch (error) {
+		console.log(error);
+		const response = {
+			...templateEmbed,
+			fields: [{ name: "ERROR!!!", value: `**${error.message}**` }]
+		};
+		return response;
+	}
+};
+
 // *** HANDLE COMMANDS
 
 client.on("interactionCreate", async (interaction) => {
 	if (!interaction.isCommand()) return;
 	const { commandName } = interaction;
+	const subcommandName = interaction.options.getSubcommand();
 	if (commandName === "ping") {
 		await interaction.reply("Pong!");
 	} else if (commandName === "dict") {
-		const word = interaction.options.getString("word");
-		const response = await getWord(word);
-		await interaction.reply({ embeds: [response] });
+		if (subcommandName === "get-word") {
+			const word = interaction.options.getString("word");
+			const response = await getWord(word);
+			await interaction.reply({ embeds: [response] });
+		} else if (subcommandName === "search-word") {
+			const query = interaction.options.getString("query", true);
+			const response = await searchWords(query);
+			await interaction.reply({ embeds: [response] });
+		}
 	}
 });
 
