@@ -33,6 +33,33 @@ const commands = [
 						.setDescription("Request a word")
 						.setRequired(true)
 				)
+		),
+	new SlashCommandBuilder()
+		.setName("cat")
+		.setDescription("Get cute cat pictures")
+		.addSubcommand((subcommand) =>
+			subcommand
+				.setName("pic")
+				.setDescription(
+					"Get a random cute cat picture (optional: specifying tags)"
+				)
+				.addStringOption((option) =>
+					option.setName("tags").setDescription("Add tags")
+				)
+		)
+		.addSubcommand((subcommand) =>
+			subcommand.setName("gif").setDescription("Get a random cute cat gif")
+		)
+		.addSubcommand((subcommand) =>
+			subcommand
+				.setName("says")
+				.setDescription("Get a random cat saying text")
+				.addStringOption((option) =>
+					option
+						.setName("text")
+						.setDescription("Cat says what?")
+						.setRequired(true)
+				)
 		)
 ].map((command) => command.toJSON());
 

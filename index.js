@@ -66,7 +66,7 @@ const getWordInfo = (data) => {
 	return parsedDefinitions;
 };
 
-const templateEmbed = {
+const dictionaryEmbedTemplate = {
 	color: 0x0099ff,
 	title: "📖 REK7on's Dictionary",
 	description: "Do not spam! (2500 reqs/day only 🥺)",
@@ -102,15 +102,15 @@ const getWord = async (word) => {
 		// const data = require("./data.json");
 		const fields = getWordInfo(data);
 		const response = {
-			...templateEmbed,
+			...dictionaryEmbedTemplate,
 			fields
 		};
 		return response;
-	} catch (error) {
-		console.log(error);
+	} catch (err) {
+		console.log(err);
 		const response = {
-			...templateEmbed,
-			fields: [{ name: "ERROR!!!", value: `**${error.message}**` }]
+			...dictionaryEmbedTemplate,
+			fields: [{ name: "ERROR!!!", value: `**${err.message}**` }]
 		};
 		return response;
 	}
@@ -141,7 +141,7 @@ const searchWords = async (query) => {
 	try {
 		const words = await getSearchData(query);
 		const response = {
-			...templateEmbed,
+			...dictionaryEmbedTemplate,
 			fields: [
 				{
 					name: `Search results for "${query}":`,
@@ -152,13 +152,43 @@ const searchWords = async (query) => {
 			]
 		};
 		return response;
-	} catch (error) {
-		console.log(error);
+	} catch (err) {
+		console.log(err);
 		const response = {
-			...templateEmbed,
-			fields: [{ name: "ERROR!!!", value: `**${error.message}**` }]
+			...dictionaryEmbedTemplate,
+			fields: [{ name: "ERROR!!!", value: `**${err.message}**` }]
 		};
 		return response;
+	}
+};
+
+const catEmbedTemplate = {
+	color: 0x0099ff,
+	title: "📖 REK7on's Cat Shelter",
+	description: "Get cute pictures of cats",
+	timestamp: new Date(),
+	footer: {
+		text: "Copyright © since 2021"
+	}
+};
+
+const getCat = async (url) => {
+	const options = {
+		method: "GET",
+		url
+	};
+	try {
+		await axios.request(options);
+		return {
+			...catEmbedTemplate,
+			image: { url }
+		};
+	} catch (err) {
+		console.log(err);
+		return {
+			...catEmbedTemplate,
+			fields: [{ name: "ERROR!!!", value: `**${err.response.statusText}**` }]
+		};
 	}
 };
 
@@ -180,6 +210,22 @@ client.on("interactionCreate", async (interaction) => {
 			const response = await searchWords(query);
 			await interaction.reply({ embeds: [response] });
 		}
+	} else if (commandName === "cat") {
+		let url = "https://cataas.com/cat";
+		if (subcommandName === "img") {
+			const tags = interaction.options.getString("tags");
+			if (tags) url += `/${tags}`;
+		} else if (subcommandName === "gif") {
+			url += "/gif";
+		} else if (subcommandName === "says") {
+			const text = interaction.options.getString("text", true);
+			url += "/says/";
+			url += text;
+		}
+		url = encodeURI(url);
+		console.log(url);
+		const response = await getCat(url);
+		await interaction.reply({ embeds: [response] });
 	}
 });
 
