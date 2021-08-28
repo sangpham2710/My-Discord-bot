@@ -223,7 +223,6 @@ client.on("interactionCreate", async (interaction) => {
 			url += text;
 		}
 		url = encodeURI(url);
-		console.log(url);
 		const response = await getCat(url);
 		await interaction.reply({ embeds: [response] });
 	}
