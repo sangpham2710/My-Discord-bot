@@ -48,9 +48,6 @@ const commands = [
 				)
 		)
 		.addSubcommand((subcommand) =>
-			subcommand.setName("gif").setDescription("Get a random cute cat gif")
-		)
-		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("says")
 				.setDescription("Get a random cat saying text")

@@ -215,8 +215,6 @@ client.on("interactionCreate", async (interaction) => {
 		if (subcommandName === "img") {
 			const tags = interaction.options.getString("tags");
 			if (tags) url += `/${tags}`;
-		} else if (subcommandName === "gif") {
-			url += "/gif";
 		} else if (subcommandName === "says") {
 			const text = interaction.options.getString("text", true);
 			url += "/says/";
