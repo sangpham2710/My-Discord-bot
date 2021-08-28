@@ -203,26 +203,31 @@ client.on("interactionCreate", async (interaction) => {
 	} else if (commandName === "dict") {
 		if (subcommandName === "get-word") {
 			const word = interaction.options.getString("word");
+			await interaction.deferReply();
 			const response = await getWord(word);
-			await interaction.reply({ embeds: [response] });
+			await interaction.editReply({ embeds: [response] });
 		} else if (subcommandName === "search-words") {
 			const query = interaction.options.getString("query", true);
+			await interaction.deferReply();
 			const response = await searchWords(query);
-			await interaction.reply({ embeds: [response] });
+			await interaction.editReply({ embeds: [response] });
 		}
 	} else if (commandName === "cat") {
 		let url = "https://cataas.com/cat";
 		if (subcommandName === "img") {
 			const tags = interaction.options.getString("tags");
 			if (tags) url += `/${tags}`;
+		} else if (subcommandName === "gif") {
+			url += "/gif";
 		} else if (subcommandName === "says") {
 			const text = interaction.options.getString("text", true);
 			url += "/says/";
 			url += text;
 		}
 		url = encodeURI(url);
+		await interaction.deferReply();
 		const response = await getCat(url);
-		await interaction.reply({ embeds: [response] });
+		await interaction.editReply({ embeds: [response] });
 	}
 });
 
