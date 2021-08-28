@@ -1,0 +1,402 @@
+{
+    "word": "present",
+    "results": [
+        {
+            "definition": "perform (a play), especially on a stage",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "represent",
+                "stage"
+            ],
+            "inCategory": [
+                "performing arts"
+            ],
+            "typeOf": [
+                "re-create"
+            ],
+            "hasTypes": [
+                "localise",
+                "set",
+                "place",
+                "localize"
+            ],
+            "derivation": [
+                "presentment"
+            ]
+        },
+        {
+            "definition": "the period of time that is happening now; any continuous stretch of time including the moment of speech",
+            "partOfSpeech": "noun",
+            "synonyms": [
+                "nowadays"
+            ],
+            "typeOf": [
+                "time"
+            ],
+            "hasTypes": [
+                "time being",
+                "present moment",
+                "today",
+                "nonce",
+                "now",
+                "date",
+                "tonight",
+                "here and now",
+                "moment"
+            ],
+            "examples": [
+                "that is enough for the present",
+                "he lives in the present with no thought of tomorrow"
+            ]
+        },
+        {
+            "definition": "give, especially as an honor or reward",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "award"
+            ],
+            "typeOf": [
+                "apportion",
+                "allocate"
+            ],
+            "hasTypes": [
+                "bestow",
+                "certificate",
+                "confer"
+            ],
+            "derivation": [
+                "presentation"
+            ]
+        },
+        {
+            "definition": "introduce",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "pose"
+            ],
+            "typeOf": [
+                "make up",
+                "constitute",
+                "be",
+                "comprise",
+                "represent"
+            ]
+        },
+        {
+            "definition": "a verb tense that expresses actions or states at the time of speaking",
+            "partOfSpeech": "noun",
+            "synonyms": [
+                "present tense"
+            ],
+            "typeOf": [
+                "tense"
+            ],
+            "hasTypes": [
+                "historical present"
+            ]
+        },
+        {
+            "definition": "represent abstractly, for example in a painting, drawing, or sculpture",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "portray"
+            ],
+            "inCategory": [
+                "art",
+                "artistic creation",
+                "artistic production"
+            ],
+            "typeOf": [
+                "interpret",
+                "represent"
+            ],
+            "hasTypes": [
+                "commend"
+            ],
+            "derivation": [
+                "presentation",
+                "presentment"
+            ]
+        },
+        {
+            "definition": "hand over formally",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "submit"
+            ],
+            "typeOf": [
+                "give"
+            ],
+            "hasTypes": [
+                "bring in"
+            ],
+            "derivation": [
+                "presentation",
+                "presenter"
+            ]
+        },
+        {
+            "definition": "deliver (a speech, oration, or idea)",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "deliver"
+            ],
+            "typeOf": [
+                "utter",
+                "mouth",
+                "speak",
+                "talk",
+                "verbalise",
+                "verbalize"
+            ],
+            "hasTypes": [
+                "speechify"
+            ],
+            "derivation": [
+                "presentation"
+            ],
+            "examples": [
+                "The commencement speaker presented a forceful speech that impressed the students"
+            ]
+        },
+        {
+            "definition": "give an exhibition of to an interested audience",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "demo",
+                "demonstrate",
+                "exhibit",
+                "show"
+            ],
+            "typeOf": [
+                "show"
+            ],
+            "hasTypes": [
+                "bring home"
+            ],
+            "derivation": [
+                "presentation",
+                "presentment"
+            ]
+        },
+        {
+            "definition": "cause to come to know personally",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "acquaint",
+                "introduce"
+            ],
+            "typeOf": [
+                "inform"
+            ],
+            "hasTypes": [
+                "reintroduce",
+                "re-introduce",
+                "introduce",
+                "bring out"
+            ],
+            "verbGroup": [
+                "acquaint",
+                "familiarize",
+                "familiarise"
+            ],
+            "derivation": [
+                "presenter",
+                "presentation"
+            ]
+        },
+        {
+            "definition": "give as a present; make a gift of",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "gift",
+                "give"
+            ],
+            "hasTypes": [
+                "raffle",
+                "cede",
+                "leave",
+                "bung",
+                "bequeath",
+                "will",
+                "treat",
+                "deed over",
+                "deliver",
+                "distribute",
+                "donate",
+                "dower",
+                "endow",
+                "tip",
+                "tender",
+                "surrender",
+                "submit",
+                "fee",
+                "pass out",
+                "render",
+                "give away",
+                "give out",
+                "give up",
+                "grant",
+                "regift",
+                "hand out",
+                "raffle off"
+            ],
+            "derivation": [
+                "presenter"
+            ]
+        },
+        {
+            "definition": "bring forward and present to the mind",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "lay out",
+                "represent"
+            ],
+            "typeOf": [
+                "say",
+                "state",
+                "tell"
+            ],
+            "hasTypes": [
+                "argue",
+                "indicate",
+                "reason",
+                "spin"
+            ],
+            "derivation": [
+                "presentation"
+            ],
+            "examples": [
+                "We presented the arguments to him",
+                "We cannot represent this knowledge to our formal reason"
+            ]
+        },
+        {
+            "definition": "recognize with a gesture prescribed by a military regulation; assume a prescribed position",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "salute"
+            ],
+            "entails": [
+                "gesture",
+                "motion",
+                "gesticulate"
+            ],
+            "typeOf": [
+                "recognize",
+                "recognise",
+                "greet"
+            ]
+        },
+        {
+            "definition": "present somebody with something, usually to accuse or criticize",
+            "partOfSpeech": "verb",
+            "synonyms": [
+                "confront",
+                "face"
+            ],
+            "verbGroup": [
+                "confront",
+                "face up",
+                "face"
+            ]
+        },
+        {
+            "definition": "being or existing in a specified place",
+            "partOfSpeech": "adjective",
+            "attribute": [
+                "presence"
+            ],
+            "similarTo": [
+                "ever-present",
+                "attendant",
+                "naturally occurring",
+                "here",
+                "existing",
+                "ubiquitous",
+                "omnipresent"
+            ],
+            "antonyms": [
+                "absent"
+            ],
+            "derivation": [
+                "presence"
+            ],
+            "examples": [
+                "the murderer is present in this room",
+                "present at the wedding",
+                "present at the creation"
+            ]
+        },
+        {
+            "definition": "formally present a debutante, a representative of a country, etc.",
+            "partOfSpeech": "verb",
+            "typeOf": [
+                "introduce",
+                "acquaint"
+            ],
+            "derivation": [
+                "presentation"
+            ]
+        },
+        {
+            "definition": "something presented as a gift",
+            "partOfSpeech": "noun",
+            "typeOf": [
+                "gift"
+            ],
+            "hasTypes": [
+                "wedding gift",
+                "birthday gift",
+                "wedding present",
+                "birthday present",
+                "christmas gift",
+                "christmas present"
+            ],
+            "examples": [
+                "his tie was a present from his wife"
+            ]
+        },
+        {
+            "definition": "temporal sense; intermediate between past and future; now existing or happening or in consideration",
+            "partOfSpeech": "adjective",
+            "attribute": [
+                "timing"
+            ],
+            "similarTo": [
+                "inst",
+                "instant",
+                "existing",
+                "latter-day",
+                "immediate"
+            ],
+            "antonyms": [
+                "past",
+                "future"
+            ],
+            "derivation": [
+                "presentness"
+            ],
+            "examples": [
+                "the present leader",
+                "articles for present use",
+                "the present topic",
+                "the present system",
+                "present observations"
+            ]
+        }
+    ],
+    "syllables": {
+        "count": 2,
+        "list": [
+            "pre",
+            "sent"
+        ]
+    },
+    "pronunciation": {
+        "all": "'prɛzənt",
+        "noun": "'prɛzənt",
+        "verb": "prɪ'zɛnt"
+    },
+    "frequency": 4.95
+}

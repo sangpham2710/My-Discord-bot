@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Client, Intents, MessageEmbed } = require("discord.js");
+const { Client, Intents } = require("discord.js");
 const token = process.env.BOT_TOKEN;
 const rapidapiKey = process.env.RAPIDAPI_KEY;
 const axios = require("axios").default;
@@ -74,31 +74,57 @@ const templateEmbed = {
 	}
 };
 
+const getRandomWord = async () => {
+	const options = {
+		method: "GET",
+		url: "https://wordsapiv1.p.rapidapi.com/words/",
+		params: { random: true },
+		headers: {
+			"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+			"x-rapidapi-key": rapidapiKey
+		}
+	};
+	try {
+		const res = await axios.request(options);
+		return res.data.word;
+	} catch (err) {
+		throw Error("API Server didn't respond");
+	}
+};
+
+const getWord = async (word) => {
+	const random = !Boolean(word);
+	try {
+		if (random) word = await getRandomWord();
+		const data = await getWordData(word);
+		// const data = require("./data.json");
+		const fields = getWordInfo(data);
+		const response = {
+			...templateEmbed,
+			fields
+		};
+		return response;
+	} catch (error) {
+		console.log(error);
+		const response = {
+			...templateEmbed,
+			fields: [{ name: "ERROR!!!", value: `**${error.message}**` }]
+		};
+		return response;
+	}
+};
+
+// *** HANDLE COMMANDS
+
 client.on("interactionCreate", async (interaction) => {
 	if (!interaction.isCommand()) return;
-
 	const { commandName } = interaction;
 	if (commandName === "ping") {
 		await interaction.reply("Pong!");
 	} else if (commandName === "dict") {
-		const word = interaction.options.getString("word", true);
-		try {
-			const data = await getWordData(word);
-			const fields = await getWordInfo(data);
-			const response = {
-				...templateEmbed,
-				fields
-			};
-
-			await interaction.reply({ embeds: [response] });
-		} catch (error) {
-			console.log(error);
-			const response = {
-				...templateEmbed,
-				fields: [{ name: "ERROR!!!", value: `**${error.message}**` }]
-			};
-			await interaction.reply({ embeds: [response] });
-		}
+		const word = interaction.options.getString("word");
+		const response = await getWord(word);
+		await interaction.reply({ embeds: [response] });
 	}
 });
 

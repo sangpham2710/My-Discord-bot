@@ -13,8 +13,15 @@ const commands = [
 	new SlashCommandBuilder()
 		.setName("dict")
 		.setDescription("A fully fledged dictionary")
-		.addStringOption((option) =>
-			option.setName("word").setDescription("Request a word").setRequired(true)
+		.addSubcommand((subcommand) =>
+			subcommand
+				.setName("get-word")
+				.setDescription(
+					'Request a word (or a random word instead if not specify the "word" option'
+				)
+				.addStringOption((option) =>
+					option.setName("word").setDescription("Request a word")
+				)
 		)
 ].map((command) => command.toJSON());
 
