@@ -37,7 +37,9 @@ const getWordInfo = (data) => {
 	];
 	// parse definitions
 	if (!data.results) {
-		throw Error(`Requested word "${data.word}" has no formal definition`);
+		throw Error(
+			`Requested word "${data.word}" has no formal definition\nPlease retry using its other word forms`
+		);
 	}
 	for (let result of data.results) {
 		if (!definitions[result.partOfSpeech]) {
@@ -173,7 +175,7 @@ client.on("interactionCreate", async (interaction) => {
 			const word = interaction.options.getString("word");
 			const response = await getWord(word);
 			await interaction.reply({ embeds: [response] });
-		} else if (subcommandName === "search-word") {
+		} else if (subcommandName === "search-words") {
 			const query = interaction.options.getString("query", true);
 			const response = await searchWords(query);
 			await interaction.reply({ embeds: [response] });

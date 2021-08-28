@@ -17,7 +17,7 @@ const commands = [
 			subcommand
 				.setName("get-word")
 				.setDescription(
-					'Request a word (or a random word instead if not specify the "word" option'
+					'Request a word (or a random word instead if not specify the "word" option)'
 				)
 				.addStringOption((option) =>
 					option.setName("word").setDescription("Request a word")
@@ -25,7 +25,7 @@ const commands = [
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName("search-word")
+				.setName("search-words")
 				.setDescription("Search words using Regular Expression (RegEx)")
 				.addStringOption((option) =>
 					option
