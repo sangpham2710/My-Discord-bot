@@ -37,7 +37,9 @@ const getWordInfo = (data) => {
 	];
 	// parse definitions
 	if (!data.results) {
-		throw Error(`Requested word "${data.word}" has no formal definition`);
+		throw Error(
+			`Requested word "${data.word}" has no formal definition\nPlease retry using its other word forms`
+		);
 	}
 	for (let result of data.results) {
 		if (!definitions[result.partOfSpeech]) {
