@@ -1,4 +1,6 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+	require("dotenv").config();
+}
 const { Client, Intents } = require("discord.js");
 const token = process.env.BOT_TOKEN;
 const rapidapiKey = process.env.RAPIDAPI_KEY;
