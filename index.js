@@ -72,7 +72,6 @@ const dictionaryEmbedTemplate = {
 	color: 0x0099ff,
 	title: "📖 REK7on's Dictionary",
 	description: "Do not spam! (2500 reqs/day only 🥺)",
-	timestamp: Date.now(),
 	footer: {
 		text: "Copyright © since 2021"
 	}
@@ -105,6 +104,7 @@ const getWord = async (word) => {
 		const fields = getWordInfo(data);
 		const response = {
 			...dictionaryEmbedTemplate,
+			timestamp: new Date(),
 			fields
 		};
 		return response;
@@ -112,6 +112,7 @@ const getWord = async (word) => {
 		console.log(err);
 		const response = {
 			...dictionaryEmbedTemplate,
+			timestamp: new Date(),
 			fields: [{ name: "ERROR!!!", value: `**${err.message}**` }]
 		};
 		return response;
@@ -144,6 +145,7 @@ const searchWords = async (query) => {
 		const words = await getSearchData(query);
 		const response = {
 			...dictionaryEmbedTemplate,
+			timestamp: new Date(),
 			fields: [
 				{
 					name: `Search results for "${query}":`,
@@ -158,6 +160,7 @@ const searchWords = async (query) => {
 		console.log(err);
 		const response = {
 			...dictionaryEmbedTemplate,
+			timestamp: new Date(),
 			fields: [{ name: "ERROR!!!", value: `**${err.message}**` }]
 		};
 		return response;
@@ -168,7 +171,6 @@ const catEmbedTemplate = {
 	color: 0x0099ff,
 	title: "📖 REK7on's Cat Shelter",
 	description: "Get cute pictures of cats",
-	timestamp: Date.now(),
 	footer: {
 		text: "Copyright © since 2021"
 	}
@@ -183,12 +185,14 @@ const getCat = async (url) => {
 		await axios.request(options);
 		return {
 			...catEmbedTemplate,
+			timestamp: new Date(),
 			image: { url }
 		};
 	} catch (err) {
 		console.log(err);
 		return {
 			...catEmbedTemplate,
+			timestamp: new Date(),
 			fields: [{ name: "ERROR!!!", value: `**${err.response.statusText}**` }]
 		};
 	}
