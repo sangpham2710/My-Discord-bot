@@ -72,7 +72,7 @@ const dictionaryEmbedTemplate = {
 	color: 0x0099ff,
 	title: "📖 REK7on's Dictionary",
 	description: "Do not spam! (2500 reqs/day only 🥺)",
-	timestamp: new Date(),
+	timestamp: Date.now(),
 	footer: {
 		text: "Copyright © since 2021"
 	}
@@ -168,7 +168,7 @@ const catEmbedTemplate = {
 	color: 0x0099ff,
 	title: "📖 REK7on's Cat Shelter",
 	description: "Get cute pictures of cats",
-	timestamp: new Date(),
+	timestamp: Date.now(),
 	footer: {
 		text: "Copyright © since 2021"
 	}
